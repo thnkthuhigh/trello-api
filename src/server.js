@@ -2,9 +2,12 @@ import express from "express";
 import {CLOSE_DB, CONNECT_DB, GET_DB} from "~/config/mongodb";
 import exitHook from "async-exit-hook";
 import {env} from "~/config/environment";
+import {APIs_V1} from "~/routes/v1";
 
 const START_SERVER = () => {
   const app = express();
+
+  app.use("/v1", APIs_V1);
 
   app.get("/", (req, res) => {
     res.end("<h1>Hello World!</h1><hr>");
