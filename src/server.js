@@ -7,6 +7,10 @@ import {APIs_V1} from "~/routes/v1";
 const START_SERVER = () => {
   const app = express();
 
+  //bat req.data json data
+  app.use(express.json());
+
+  //use api  v1
   app.use("/v1", APIs_V1);
 
   app.get("/", (req, res) => {
